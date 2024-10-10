@@ -29907,14 +29907,6 @@ function wrappy (fn, cb) {
 
 /***/ }),
 
-/***/ 6077:
-/***/ ((module) => {
-
-module.exports = eval("require")("node-fetch");
-
-
-/***/ }),
-
 /***/ 2613:
 /***/ ((module) => {
 
@@ -31820,7 +31812,6 @@ module.exports = parseParams
 /************************************************************************/
 var __webpack_exports__ = {};
 const fs = __nccwpck_require__(9896);
-const fetch = __nccwpck_require__(6077);
 const core = __nccwpck_require__(9451);
 const github = __nccwpck_require__(7991);
 
