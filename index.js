@@ -16,11 +16,14 @@ try {
   }
 } 
 catch (error) {
+  console.error("Error", error);
   core.setFailed(error.message);
 }
 
 async function importRepos(username, forked) {
+  console.log("importRepos", username, forked);
   let url = `https://api.github.com/users/${username}/repos`;
+  console.log("url", url);
   let data = await fetchJson(url);
   for (let repo of data) {
     if (forked == 'false' && repo.fork) {
