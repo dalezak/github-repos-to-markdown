@@ -39440,26 +39440,25 @@ try {
   const username = core.getInput('username');
   const folder = core.getInput('folder') || 'repos';
   const forked = core.getInput('forked') || 'false';
-  core.info("Inputs", username, folder, forked);
+  core.info(`Inputs username: ${username}, folder: ${folder}, forked: ${forked}`);
   if (username) {
     (async () => {
       await importRepos(username, folder, forked);
     });
   }
   else {
-    core.error("Missing 'username' input");
+    core.debug("Missing 'username' input");
     throw new Error("Missing 'username' input");
   }
 } 
 catch (error) {
-  core.error("Error", error);
+  core.error(`Error: ${error.message}`);
   core.setFailed(error.message);
 }
 
 async function importRepos(username, folder, forked) {
-  core.info("importRepos", username, folder, forked);
+  core.info(`importRepos ${username} ${folder} ${forked}`);
   let url = `https://api.github.com/users/${username}/repos`;
-  core.info("url", url);
   let data = await fetchJson(url);
   for (let repo of data) {
     if (forked == 'false' && repo.fork) {
@@ -39506,7 +39505,7 @@ function buildMarkdown(repo) {
 }
 
 async function fetchJson(url) {
-  core.info("fetchJson", url);
+  core.info(`fetchJson ${url}`);
   const response = await fetch(url);
   const json = await response.json();
   return json;
@@ -39515,10 +39514,10 @@ async function fetchJson(url) {
 function writeFile(path, content) {
   fs.writeFile(path, content, error => {
     if (error) {
-      core.error("writeFile", error);
+      core.error(`writeFile ${path} ${error.message}`);
     } 
     else {
-      core.info("writeFile", path);
+      core.info(`writeFile ${path}`);
     }
   });
 }
