@@ -39438,10 +39438,12 @@ const github = __nccwpck_require__(7991);
 
 try {
   const username = core.getInput('username');
-  const forked = core.getInput('forked');
+  const folder = core.getInput('folder') || 'repos';
+  const forked = core.getInput('forked') || 'false';
+  core.info("Inputs", username, folder, forked);
   if (username) {
     (async () => {
-      await importRepos(username, forked);
+      await importRepos(username, folder, forked);
     });
   }
   else {
@@ -39453,8 +39455,8 @@ catch (error) {
   core.setFailed(error.message);
 }
 
-async function importRepos(username, forked) {
-  core.info("importRepos", username, forked);
+async function importRepos(username, folder, forked) {
+  core.info("importRepos", username, folder, forked);
   let url = `https://api.github.com/users/${username}/repos`;
   core.info("url", url);
   let data = await fetchJson(url);
@@ -39463,7 +39465,7 @@ async function importRepos(username, forked) {
       continue;
     }
     let slug = repo.name;
-    let path = `repos/${slug}.md`;
+    let path = `${folder}/${slug}.md`;
     let markdown = buildMarkdown(repo);
     writeFile(path, markdown);
   }

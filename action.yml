@@ -2,8 +2,12 @@ name: 'Github Repos To Markdown'
 description: 'Generate markdown files for your public Github repos'
 inputs:
   username: 
-    description: 'Github Username'
+    description: 'Github username'
     required: true
+  folder:
+    description: 'Folder to save markdown'
+    required: false
+    default: 'repos'
   forked:
     description: 'Include forked repos'
     required: false

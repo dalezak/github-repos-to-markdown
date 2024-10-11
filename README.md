@@ -9,6 +9,10 @@ This [Github Action](https://docs.github.com/en/actions) generates markdown file
 
 **Required** Your Github username
 
+## `folder`
+
+**Optional** Folder to write markdown
+
 ### `forked`
 
 **Optional** Include forked repos
