@@ -9,9 +9,7 @@ try {
   const forked = core.getInput('forked') || 'false';
   core.info(`Inputs username: ${username}, folder: ${folder}, forked: ${forked}`);
   if (username) {
-    (async () => {
-      await importRepos(username, folder, forked);
-    });
+    importRepos(username, folder, forked);
   }
   else {
     core.debug("Missing 'username' input");
