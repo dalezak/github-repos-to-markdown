@@ -8,6 +8,7 @@ try {
   const forked = core.getInput('forked') || 'false';
   core.info(`Inputs username: ${username}, folder: ${folder}, forked: ${forked}`);
   if (username) {
+    makeFolder(folder);
     importRepos(username, folder, forked);
   }
   else {
@@ -73,6 +74,17 @@ async function fetchJson(url) {
   const response = await fetch(url);
   const json = await response.json();
   return json;
+}
+
+function makeFolder(path) {
+  fs.mkdir(path, { recursive: true }, error => {
+    if (error) {
+      core.error(`makeFolder ${path} ${error.message}`);
+    } 
+    else {
+      core.info(`makeFolder ${path}`);
+    }
+  });
 }
 
 function writeFile(path, content) {
