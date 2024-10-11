@@ -39449,14 +39449,14 @@ try {
   }
 } 
 catch (error) {
-  console.error("Error", error);
+  core.error("Error", error);
   core.setFailed(error.message);
 }
 
 async function importRepos(username, forked) {
-  console.info("importRepos", username, forked);
+  core.info("importRepos", username, forked);
   let url = `https://api.github.com/users/${username}/repos`;
-  console.info("url", url);
+  core.info("url", url);
   let data = await fetchJson(url);
   for (let repo of data) {
     if (forked == 'false' && repo.fork) {
@@ -39503,7 +39503,7 @@ function buildMarkdown(repo) {
 }
 
 async function fetchJson(url) {
-  console.info("fetchJson", url);
+  core.info("fetchJson", url);
   const response = await fetch(url);
   const json = await response.json();
   return json;
@@ -39512,10 +39512,10 @@ async function fetchJson(url) {
 function writeFile(path, content) {
   fs.writeFile(path, content, error => {
     if (error) {
-      console.error("writeFile", error);
+      core.error("writeFile", error);
     } 
     else {
-      console.info("writeFile", path);
+      core.info("writeFile", path);
     }
   });
 }
