@@ -47,7 +47,7 @@ function buildMarkdown(repo) {
     stars: repo.watchers,
     forks: repo.forks,
     issues: repo.open_issues,
-    language: repo.language,
+    language: repo.language || "",
     forked: repo.fork,
     archived: repo.archived,
     disabled: repo.disabled,

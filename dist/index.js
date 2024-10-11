@@ -31860,7 +31860,7 @@ function buildMarkdown(repo) {
     stars: repo.watchers,
     forks: repo.forks,
     issues: repo.open_issues,
-    language: repo.language,
+    language: repo.language || "",
     forked: repo.fork,
     archived: repo.archived,
     disabled: repo.disabled,
@@ -31868,7 +31868,9 @@ function buildMarkdown(repo) {
     license: repo.license ? repo.license.spdx_id : "",
     keywords: [
       repo.topics ? repo.topics : [],
-      repo.language ? repo.language.toLowerCase() : ""
+      repo.language ? repo.language.toLowerCase() : "",
+      repo.watchers == 1 ? "1 star" : `${repo.watchers} stars`, 
+      repo.forks == 1 ? "1 fork" : `${repo.forks} forks`
     ].filter(String).join(",")
   }
   let markdown = `---\n`;
