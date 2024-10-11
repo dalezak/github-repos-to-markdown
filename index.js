@@ -21,9 +21,9 @@ catch (error) {
 }
 
 async function importRepos(username, forked) {
-  console.log("importRepos", username, forked);
+  console.info("importRepos", username, forked);
   let url = `https://api.github.com/users/${username}/repos`;
-  console.log("url", url);
+  console.info("url", url);
   let data = await fetchJson(url);
   for (let repo of data) {
     if (forked == 'false' && repo.fork) {
@@ -70,7 +70,7 @@ function buildMarkdown(repo) {
 }
 
 async function fetchJson(url) {
-  console.log("fetchJson", url);
+  console.info("fetchJson", url);
   const response = await fetch(url);
   const json = await response.json();
   return json;
@@ -82,7 +82,7 @@ function writeFile(path, content) {
       console.error("writeFile", error);
     } 
     else {
-      console.log("writeFile", path);
+      console.info("writeFile", path);
     }
   });
 }
