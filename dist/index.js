@@ -31876,7 +31876,7 @@ function buildMarkdown(repo) {
     markdown += `${key}: ${frontmatter[key]}\n`;
   }
   markdown += `description: >
-    ${description||""}\n`;
+    ${repo.description||""}\n`;
   markdown += `---\n`;
   return markdown;
 }
