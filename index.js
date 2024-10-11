@@ -14,6 +14,7 @@ try {
     });
   }
   else {
+    core.error("Missing 'username' input");
     throw new Error("Missing 'username' input");
   }
 } 
