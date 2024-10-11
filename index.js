@@ -38,10 +38,9 @@ async function importRepos(username, folder, forked) {
 
 function buildMarkdown(repo) {
   let frontmatter = {
-    id: repo.id,
     title: repo.name,
     url: repo.html_url,
-    link: repo.homepage,
+    link: repo.homepage || "",
     path: repo.full_name,
     owner: repo.owner.login,
     private: repo.private,
@@ -56,7 +55,9 @@ function buildMarkdown(repo) {
     license: repo.license ? repo.license.spdx_id : "",
     keywords: [
       repo.topics ? repo.topics : [],
-      repo.language ? repo.language.toLowerCase() : ""
+      repo.language ? repo.language.toLowerCase() : "",
+      repo.watchers == 1 ? "1 star" : `${repo.watchers} stars`, 
+      repo.forks == 1 ? "1 fork" : `${repo.forks} forks`
     ].filter(String).join(",")
   }
   let markdown = `---\n`;

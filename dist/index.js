@@ -31851,10 +31851,9 @@ async function importRepos(username, folder, forked) {
 
 function buildMarkdown(repo) {
   let frontmatter = {
-    id: repo.id,
     title: repo.name,
     url: repo.html_url,
-    link: repo.homepage,
+    link: repo.homepage || "",
     path: repo.full_name,
     owner: repo.owner.login,
     private: repo.private,
