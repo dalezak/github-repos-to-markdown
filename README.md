@@ -9,7 +9,7 @@ This [Github Action](https://docs.github.com/en/actions) generates markdown file
 
 **Required** Your Github username
 
-## `folder`
+### `folder`
 
 **Optional** Folder to write markdown
 
