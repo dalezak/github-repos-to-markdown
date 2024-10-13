@@ -11,15 +11,15 @@
 
 #### `folder`
 - _Description_: Output folder
-- _Required_: 'false'
-- _Default_: 'repos'
+- _Required_: false
+- _Default_: repos
 
 **Optional** Folder to write markdown
 
 #### `forked`
 - _Description_: Include forked repos
-- _Required_: 'false'
-- _Default_: 'true'
+- _Required_: false
+- _Default_: true
 
 ---
 
