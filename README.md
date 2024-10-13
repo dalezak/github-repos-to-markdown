@@ -14,8 +14,6 @@
 - _Required_: false
 - _Default_: repos
 
-**Optional** Folder to write markdown
-
 #### `forked`
 - _Description_: Include forked repos
 - _Required_: false
