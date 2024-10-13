@@ -1,5 +1,8 @@
 name: 'Github Repos To Markdown'
-description: 'Generate markdown files for your public Github repos'
+description: 'Generate markdown for Github repos'
+branding:
+  icon: 'edit'
+  color: 'green'
 inputs:
   username: 
     description: 'Github username'

@@ -31819,7 +31819,6 @@ try {
   const username = core.getInput('username');
   const folder = core.getInput('folder') || 'repos';
   const forked = core.getInput('forked') || 'false';
-  core.info(`Inputs username: ${username}, folder: ${folder}, forked: ${forked}`);
   if (username) {
     makeFolder(folder);
     importRepos(username, folder, forked);
