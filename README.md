@@ -45,7 +45,7 @@ with:
 
 ---
 
-## Example
+## Output
 
 ```markdown
 ---
@@ -71,6 +71,7 @@ description: >
 
 # dalezak/github-repos-to-markdown
 #### Generate markdown from Github repos
+
 [https://github.com/dalezak/github-repos-to-markdown](https://github.com/dalezak/github-repos-to-markdown)
 ```
 
