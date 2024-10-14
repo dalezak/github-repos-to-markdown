@@ -31879,6 +31879,16 @@ function buildMarkdown(repo) {
   markdown += `description: >
     ${repo.description||""}\n`;
   markdown += `---\n`;
+  markdown += `# ${repo.full_name}\n`;
+  if (repo.description && repo.description.length > 0) {
+    markdown += `#### ${repo.description}\n`;
+  }
+  if (repo.html_url && repo.html_url.length > 0) {
+    markdown += `\n[${repo.html_url}](${repo.html_url})\n`;
+  }
+  if (repo.homepage && repo.homepage.length > 0) {
+    markdown += `\n[${repo.homepage}](${repo.homepage})\n`;
+  }
   return markdown;
 }
 
