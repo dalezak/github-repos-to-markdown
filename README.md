@@ -4,7 +4,7 @@
 
 Useful for static site generators like [VitePress](https://vitepress.dev) or [VuePress](https://vuepress.vuejs.org/).
 
---
+---
 
 ## Inputs
 
@@ -22,7 +22,7 @@ Useful for static site generators like [VitePress](https://vitepress.dev) or [Vu
 - _Required_: false
 - _Default_: true
 
---
+---
 
 ## Permission
 
@@ -31,7 +31,7 @@ permissions:
   contents: write
 ```
 
---
+---
 
 ## Usage
 
@@ -43,7 +43,7 @@ with:
   forked: 'false'
 ```
 
---
+---
 
 ## Output
 
@@ -75,7 +75,7 @@ description: >
 [https://github.com/dalezak/github-repos-to-markdown](https://github.com/dalezak/github-repos-to-markdown)
 ```
 
---
+---
 
 ## Build
 
@@ -83,7 +83,7 @@ description: >
 ncc build index.js --license licenses.txt
 ```
 
---
+---
 
 ## License
 
