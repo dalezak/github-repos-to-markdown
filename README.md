@@ -64,7 +64,7 @@ archived: false
 disabled: false
 visibility: public
 license: MIT
-keywords: javascript,0 stars,0 forks
+keywords: github-actions,markdown,javascript
 description: >
     Generate markdown for you Github repos
 ---

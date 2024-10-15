@@ -31867,10 +31867,8 @@ function buildMarkdown(repo) {
     license: repo.license ? repo.license.spdx_id : "",
     keywords: [
       repo.topics ? repo.topics : [],
-      repo.language ? repo.language.toLowerCase() : "",
-      repo.watchers == 1 ? "1 star" : `${repo.watchers} stars`, 
-      repo.forks == 1 ? "1 fork" : `${repo.forks} forks`
-    ].filter(String).join(",")
+      repo.language ? repo.language : ""
+    ].filter(String).join(",").toLowerCase()
   }
   let markdown = `---\n`;
   for (let key in frontmatter) {
@@ -31879,7 +31877,7 @@ function buildMarkdown(repo) {
   markdown += `description: >
     ${repo.description||""}\n`;
   markdown += `---\n`;
-  markdown += `# ${repo.full_name}\n`;
+  markdown += `\n# ${repo.name}\n`;
   if (repo.description && repo.description.length > 0) {
     markdown += `#### ${repo.description}\n`;
   }
