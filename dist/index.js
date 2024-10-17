@@ -31853,7 +31853,6 @@ function buildMarkdown(repo) {
     title: repo.name,
     url: repo.html_url,
     link: repo.homepage || "",
-    path: repo.full_name,
     owner: repo.owner.login,
     private: repo.private,
     stars: repo.watchers,

@@ -24,6 +24,18 @@ Useful for static site generators like [VitePress](https://vitepress.dev) or [Vu
 
 ---
 
+## Usage
+
+```yaml
+uses: dalezak/github-repos-to-markdown@main
+with:
+  username: 'GITHUB_USERNAME'
+  folder: 'repos'
+  forked: 'false'
+```
+
+---
+
 ## Permission
 
 ```yaml
@@ -33,14 +45,59 @@ permissions:
 
 ---
 
-## Usage
+## Schedule
 
 ```yaml
-uses: dalezak/github-repos-to-markdown@main
-with:
-  username: 'GITHUB_USERNAME'
-  folder: 'repos'
-  forked: 'false'
+on:
+  schedule:
+    - cron: "0 2 * * *"
+```
+
+---
+
+## Example
+
+```yaml
+name: Repos To Markdown
+
+on:
+  schedule:
+    - cron: "0 2 * * *"
+
+jobs:
+  import_repos:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Repos To Markdown
+        uses: dalezak/github-repos-to-markdown@main
+        with:
+          username: 'dalezak'
+          folder: 'repos'
+          forked: 'false'
+
+      - name: Commit and Push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          branch: main
+          add_options: '--all'
+          file_pattern: '**/*.md'
+          commit_options: "--no-verify"
+          commit_message: "Repos to Markdown"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"
+
 ```
 
 ---
