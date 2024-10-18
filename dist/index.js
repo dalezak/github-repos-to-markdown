@@ -31852,6 +31852,7 @@ function buildMarkdown(repo) {
   let frontmatter = {
     title: repo.name,
     url: repo.html_url,
+    repo: repo.full_name,
     link: repo.homepage || "",
     owner: repo.owner.login,
     private: repo.private,
