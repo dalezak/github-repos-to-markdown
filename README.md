@@ -83,7 +83,7 @@ jobs:
       - name: Repos To Markdown
         uses: dalezak/github-repos-to-markdown@main
         with:
-          username: 'dalezak'
+          username: 'GITHUB_USERNAME'
           folder: 'repos'
           forked: 'false'
 
@@ -107,9 +107,9 @@ jobs:
 ```markdown
 ---
 title: github-repos-to-markdown
+repo: dalezak/github-repos-to-markdown
 url: https://github.com/dalezak/github-repos-to-markdown
-link: 
-path: dalezak/github-repos-to-markdown
+link:
 owner: dalezak
 private: false
 stars: 0

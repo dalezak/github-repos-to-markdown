@@ -38,11 +38,10 @@ async function importRepos(username, folder, forked) {
 function buildMarkdown(repo) {
   let frontmatter = {
     title: repo.name,
-    url: repo.html_url,
     repo: repo.full_name,
+    url: repo.html_url,
     link: repo.homepage || "",
     owner: repo.owner.login,
-    private: repo.private,
     stars: repo.watchers,
     forks: repo.forks,
     issues: repo.open_issues,
@@ -50,6 +49,7 @@ function buildMarkdown(repo) {
     forked: repo.fork,
     archived: repo.archived,
     disabled: repo.disabled,
+    private: repo.private,
     visibility: repo.visibility,
     license: repo.license ? repo.license.spdx_id : "",
     keywords: [
